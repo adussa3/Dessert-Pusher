@@ -27,6 +27,7 @@ import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import com.example.android.dessertpusher.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
@@ -66,8 +67,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Use log to check that onCreate is called
-        Log.i("MainActivity", "onCreate called")
+        // Use Timber to check that onCreate is called
+        Timber.i("onCreate called")
 
         // Use Data Binding to get reference to the views
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -149,5 +150,48 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             R.id.shareMenuButton -> onShare()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    /** Lifecycle Methods **/
+    override fun onStart() {
+        super.onStart()
+
+        // Use Timber to check that onStart is called
+        Timber.i("onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Use Timber to check that onResume is called
+        Timber.i("onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        // Use Timber to check that onPause is called
+        Timber.i("onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        // Use Timber to check that onStop is called
+        Timber.i("onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        // Use Timber to check that onDestroy is called
+        Timber.i("onDestroy called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        // Use Timber to check that onRestart is called
+        Timber.i("onRestart called")
     }
 }
